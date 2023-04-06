@@ -2,6 +2,8 @@ package zeke.faison.zekelcs.service
 
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import io.kotest.matchers.string.shouldNotBeBlank
+import io.kotest.matchers.string.shouldNotBeEmpty
 import org.junit.jupiter.api.BeforeEach
 
 import org.junit.jupiter.api.Assertions.*
@@ -52,7 +54,21 @@ class LCSServiceTest {
         }
     }
 
+    @Nested
+    @DisplayName("the lcs service provides the longest common substring when")
+    inner class findLongestCommonString{
 
+        @Test
+        @DisplayName("a common substring exists")
+        fun commonSubString() {
+            val strings = listOf("caster", "broadcast", "casting")
+            val setOfStrings = strings.map { LCSContent(it) }
+            val result = lcsService.findLongestCommonString(setOfStrings)
 
+            result.shouldNotBeBlank()
+            result shouldBe "cast"
+
+        }
+    }
 
 }

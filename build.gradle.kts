@@ -23,6 +23,7 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.kotest:kotest-assertions-core:5.5.0")
+    testImplementation("io.mockk:mockk:1.13.1")
 }
 
 tasks.withType<KotlinCompile> {
